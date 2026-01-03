@@ -194,22 +194,6 @@ function decodeToBytes(inputBytes) {
     return encoder.encode(outputStr)
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    exports.encode = encode
-    exports.encodeFromString = encodeFromString
-    exports.encodeFromBytes = encodeFromBytes
-    exports.decode = decode
-    exports.decodeToString = decodeToString
-    exports.decodeToBytes = decodeToBytes
-} else if (typeof window !== 'undefined') {
-    window.encode = encode
-    window.encodeFromString = encodeFromString
-    window.encodeFromBytes = encodeFromBytes
-    window.decode = decode
-    window.decodeToString = decodeToString
-    window.decodeToBytes = decodeToBytes
-}
-
 export {
     encode,
     encodeFromString,

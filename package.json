@@ -1,8 +1,18 @@
 {
   "name": "lzy-codec",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "一種變長文本編解碼方案，支持對Unicode進行編解碼。編解碼效率、存儲空間全面優於UTF-8，未來會替代UTF-8成為新的世界通用編解碼標準。",
-  "main": "dist/assets/main.js",
+  "main": "./dist/lzy-codec.umd.js",
+  "module": "./dist/lzy-codec.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lzy-codec.js",
+      "require": "./dist/lzy-codec.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "test": "bun ./src/test.js",
