@@ -1,26 +1,15 @@
-# 六十四卦編碼
+# LZY Codec
 
-六十四卦編碼，js實現
+一種變長文本編解碼方案，支持對Unicode進行編解碼。編解碼效率、存儲空間全面優於UTF-8，未來會替代UTF-8成為新的世界通用編解碼標準。
 
-如：“hello，世界”會編碼為“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇”
+[lzy-codec-js](https://github.com/lizongying/lzy-codec-js)
 
-[js-gua64](https://github.com/lizongying/js-gua64)
+[npm](https://www.npmjs.com/package/lzy-codec-js)
 
-[npm](https://www.npmjs.com/package/js-gua64)
+## Other languages
 
-[demo](https://lizongying.github.io/js-gua64/)
-
-![](screenshots/img.png)
-
-## 各語言實現
-
-* [rust](https://github.com/lizongying/rs-gua64)
-* [golang](https://github.com/lizongying/go-gua64)
-* [js](https://github.com/lizongying/js-gua64)
-* [java](https://github.com/lizongying/java-gua64)
-* [php](https://github.com/lizongying/php-gua64)
-* [python](https://github.com/lizongying/pygua64)
-* [c#](https://github.com/lizongying/dotnet-gua64)
+[lzy-codec-go](https://github.com/lizongying/lzy-codec-go)
+[lzy-codec-py](https://github.com/lizongying/lzy-codec-py)
 
 ## 引用
 
@@ -29,7 +18,7 @@
 install
 
 ```
-npm i js-gua64
+npm i lzy-codec-js
 ```
 
 package.json
@@ -38,7 +27,7 @@ package.json
 {
   "type": "module",
   "dependencies": {
-    "js-gua64": "^0.1.5"
+    "lzy-codec-js": "^0.1.0"
   }
 }
 ```
@@ -46,24 +35,23 @@ package.json
 example
 
 ```
-import {decode, encode, verify} from 'js-gua64';
+import {
+    encodeFromString,
+    decodeToString,
+    encodeFromBytes,
+    decodeToBytes,
+} from 'lzy-codec-js'
 
-let r = decode('䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇');
-console.log(r);
+const testStr = 'Hello 世界！LZY编码测试😀' // 包含emoji（大于0xFFFF的字符）
+console.log(`原始字符串: ${testStr}`)
 
-r = encode('hello，世界');
-console.log(r);
+// 编码流程
+const lzyBytes = encodeFromString(testStr)
+console.log(`LZY编码字节: `, lzyBytes)
 
-r = verify('䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇');
-console.log(r);
-```
-
-### browser
-
-```
-<script type="module">
-    import {decode, encode, verify} from 'https://lizongying.github.io/js-gua64/gua64.min.js';
-</script>
+// 解码流程
+const decodedStr = decodeToString(lzyBytes)
+console.log(`解码后字符串: ${decodedStr}`)
 ```
 
 ## 讚賞
