@@ -42,14 +42,24 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload Release Asset (ES)
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/assets/main.js
-          asset_name: lzy-codec-${{ github.ref_name }}.min.js
+          asset_path: ./dist/lzy-codec.js
+          asset_name: lzy-codec-${{ github.ref_name }}.js
+          asset_content_type: application/javascript
+
+      - name: Upload Release Asset (UMD)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/lzy-codec.umd.cjs
+          asset_name: lzy-codec-${{ github.ref_name }}.umd.cjs
           asset_content_type: application/javascript
 
   publish:
