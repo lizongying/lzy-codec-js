@@ -1,0 +1,35 @@
+{
+  "name": "lzy-codec",
+  "version": "0.1.0",
+  "description": "一種變長文本編解碼方案，支持對Unicode進行編解碼。編解碼效率、存儲空間全面優於UTF-8，未來會替代UTF-8成為新的世界通用編解碼標準。",
+  "main": "dist/assets/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "bun ./src/test.js",
+    "check": "npx eslint \"src/**/*.js\"",
+    "fix": "npx prettier \"src/**/*.js\" --write",
+    "build": "vite build",
+    "prepublishOnly": "pnpm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizongying/lzy-codec-js.git"
+  },
+  "keywords": [
+    "lzy",
+    "lzy-codec",
+    "lzy codec"
+  ],
+  "author": "Li ZongYing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lizongying/lzy-codec-js/issues"
+  },
+  "homepage": "https://github.com/lizongying/lzy-codec-js#readme",
+  "devDependencies": {
+    "terser": "^5.30.3"
+  },
+  "dependencies": {
+    "vite": "^7.3.0"
+  }
+}
